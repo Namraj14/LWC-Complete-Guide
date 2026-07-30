@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Contact Search">
+        <lightning-input type="search" label="Search Contacts" value={searchText} onchange={handleChange}></lightning-input>
+        <lightning-button label="Search" variant="brand" onclick={handleClick}></lightning-button>
+
+        <template if:true={contacts}>
+            <template for:each={contacts} for:item="contact">
+                <div key={contact.Id}>
+                    <p><strong>First Name:</strong> {contact.FirstName}</p>
+                    <p><strong>Last Name:</strong>{contact.LastName}</p>
+                    <p><strong>Email:</strong>{contact.Email}</p>
+                </div>
+            </template>
+        </template>
+        <lightning-button label="Clear Search" variant="brand" onclick = {clearClick}></lightning-button>
+    </lightning-card>
+</template>
